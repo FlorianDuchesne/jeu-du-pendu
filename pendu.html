@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./webfontkit-20210226-133244/stylesheet.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="">
+      <select name="difficulte" id="slct">
+        <option value="difficulte" selected>difficulté</option>
+        <option value="facile">facile</option>
+        <option value="difficile">difficile</option>
+      </select>
+    </form>
+    <!-- <select name="slct" id="slct">
+      <option selected disabled>difficulté</option>
+      <option value="1">facile</option>
+      <option value="2">difficile</option>
+    </select> -->
+    <div id="score" class="hidden">
+      <p> Defaites = 0 </p>
+      <p> Victoires = 0 </p>
+    </div>
+    <header>
+      <h1>Jeu du pendu</h1>
+      <h4>
+        Clique sur les lettres pour essayer de deviner le mot. Mais gare à la
+        potence !
+      </h4>
+    </header>
+    <main class="flex">
+      <section>
+        <div id="fin">
+          <h2 class="hidden">Gagné !</h2>
+          <h2 class="hidden">Perdu !</h2>
+          <button class="hidden">Recommencer</button>  
+        </div>
+        <table>
+          <tr id="mot">
+          </tr>
+        </table>
+      </section>
+      <section id="pendu">
+        <figure><img src="./imagesPendu/0.png"></img></figure>
+        <figure class="hidden"><img src="./imagesPendu/1.png"></img></figure>
+        <figure class="hidden harder"><img src="./imagesPendu/2.png"></img></figure>
+        <figure class="hidden"><img src="./imagesPendu/3.png"></img></figure>
+        <figure class="hidden harder"><img src="./imagesPendu/4.png"></img></figure>
+        <figure class="hidden"><img src="./imagesPendu/5.png"></img></figure>
+        <figure class="hidden harder"><img src="./imagesPendu/6.png"></img></figure>
+        <figure class="hidden"><img src="./imagesPendu/7.png"></img></figure>
+        <figure class="hidden harder"><img src="./imagesPendu/8.png"></img></figure>
+        <figure class="hidden"><img src="./imagesPendu/9.png"></img></figure>
+        <figure class="hidden harder"><img src="./imagesPendu/10.png"></img></figure>
+      </section>
+    </main>
+    <footer>
+      <div id="clavier">
+        <div>A</div>
+        <div>B</div>
+        <div>C</div>
+        <div>D</div>
+        <div>E</div>
+        <div>F</div>
+        <div>G</div>
+        <div>H</div>
+        <div>I</div>
+        <div>J</div>
+        <div>K</div>
+        <div>L</div>
+        <div>M</div>
+        <div>N</div>
+        <div>O</div>
+        <div>P</div>
+        <div>Q</div>
+        <div>R</div>
+        <div>S</div>
+        <div>T</div>
+        <div>U</div>
+        <div>V</div>
+        <div>W</div>
+        <div>X</div>
+        <div>Y</div>
+        <div>Z</div>
+      </div>
+    </footer>
+  </body>
+  <script src="script3.js"></script>
+</html>

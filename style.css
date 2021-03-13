@@ -1,0 +1,155 @@
+* {
+  text-align: center;
+  -webkit-box-sizing: borderbox;
+  box-sizing: borderbox;
+}
+
+body {
+  background-image: url(./img/background3.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: 50%;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+header h1 {
+  font-family: "shadows_into_lightregular";
+  font-size: xxx-large;
+  margin: 5px;
+  color: white;
+}
+
+header h4 {
+  font-family: "Courier New", Courier, monospace;
+  color: white;
+  margin-bottom: 3em;
+}
+
+main {
+  width: 100%;
+  margin-bottom: 4em;
+}
+
+main #mot {
+  border-spacing: 1em;
+}
+
+td {
+  font-family: "permanent_markerregular";
+  font-size: xxx-large;
+  text-align: center;
+  width: 50px;
+  height: auto;
+  border-bottom: solid rgb(255, 255, 255) 2px;
+  color: rgba(255, 255, 255, 0);
+  margin: 1em;
+  transition: ease-in-out 0.5s;
+}
+
+main figure {
+  margin: 0;
+  width: 300px;
+  position: absolute;
+  top: 30vh;
+  right: 10vw;
+  transition: ease-out 1s;
+}
+
+main figure img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+footer #clavier {
+  width: 60%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: auto;
+  transition: ease-in-out 0.5s;
+}
+
+footer #clavier div {
+  font-family: "shadows_into_lightregular";
+  text-decoration: none;
+  font-size: x-large;
+  margin: 0.2em;
+  width: 50px;
+  height: 50px;
+  color: rgb(255, 255, 255);
+  background-color: darkred;
+  border-radius: 30px;
+  transition: ease-in-out 0.5s;
+}
+/*# sourceMappingURL=style.css.map */
+
+.apparent {
+  color: white;
+}
+
+.noMore {
+  opacity: 0;
+}
+
+#fin h2 {
+  font-family: "shadows_into_lightregular";
+  font-size: xxx-large;
+  margin: 5px;
+  color: white;
+  transition: ease-in-out 0.5s;
+}
+
+#fin button {
+  font-family: "shadows_into_lightregular";
+  font-size: xxx-large;
+  margin: 5px;
+  color: crimson;
+  border: none;
+  background: none;
+  transition: ease-in-out 0.5s;
+}
+
+#score {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-family: "Courier New", Courier, monospace;
+  color: white;
+  margin: 1em;
+}
+
+#slct {
+  position: fixed;
+  right: 0;
+  left: 0;
+  font-family: "Courier New", Courier, monospace;
+  color: white;
+  border: none;
+  margin: 0;
+  padding: 0.25em 0.5em;
+  font-size: 1.25rem;
+  cursor: pointer;
+  background-color: darkred;
+}
