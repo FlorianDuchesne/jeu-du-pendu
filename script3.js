@@ -1,8 +1,3 @@
-// marche pas du tout…
-// la victoire ou défaite ne se déclenche pas
-// la mauvaise pioche se déclenche systématiquement
-// repartir de la version précédente, qui est moins déglinguée ?…
-
 var motCache = "BISOUNOURS";
 var tabMot = motCache.split("");
 var clavier = document.querySelector("#clavier").children;
