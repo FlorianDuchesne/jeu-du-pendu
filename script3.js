@@ -1,13 +1,5 @@
-var motCache = "BISOUNOURS";
-var tabMot = motCache.split("");
+var motCache = "";
 var clavier = document.querySelector("#clavier").children;
-
-// ici, on crée autant de td en inner html à l'intérieur de #mot,
-//qu'il y a d'éléments dans le tableau tabMot
-for (let i = 0; i < tabMot.length; i++) {
-  document.querySelector("#mot").innerHTML += "<td>" + tabMot[i] + "</td>";
-}
-
 var hard = false;
 var pointsDefaite = 0;
 var pointsVictoire = 0;
@@ -15,8 +7,6 @@ var nbVictoires = 0;
 var nbDefaites = 0;
 let pendu = 0;
 let hardernb = 0;
-
-play();
 
 function victoire() {
   // on cache le clavier entièrement
@@ -26,7 +16,6 @@ function victoire() {
   // on révèle le "recommencer"
   document.querySelector("#fin").firstElementChild.classList.remove("hidden");
   // on augmente le nombre de victoires au score
-  nbVictoires++;
 }
 
 function defaite() {
@@ -37,12 +26,11 @@ function defaite() {
   // on révèle "perdu"
   document.querySelector("#fin").children[1].classList.remove("hidden");
   // on augmente le nombre de défaites
-  nbDefaites++;
 }
 
-function bonnePioche(i) {
+function bonnePioche(i, tabMot, pointsVictoire) {
   // on incrémente les "points" de victoire
-  pointsVictoire++;
+  console.log(pointsVictoire);
   // on fait apparaître la ou les lettres identifiées
   document.querySelector("#mot").children[i].classList.add("apparent");
   // si les points de victoire sont égaux à la longueur du tableau mot,
@@ -57,7 +45,7 @@ function mauvaisePioche() {
   // on incrément la défaite
   pointsDefaite++;
   // on définit la variable pendu comme la figure ayant pour position la valeur de "défaite"
-  if (hard) {
+  if (difficulty === "difficile") {
     harder();
   } else {
     document
@@ -82,6 +70,23 @@ function harder() {
 }
 
 function play() {
+  // on révèle le score
+  // document.querySelector("#score").classList.remove("hidden");
+  // le score correspond au nombre de défaites
+  // document.querySelector("#score").children[0].innerHTML =
+  //   "Defaites = " + sessionStorage.getItem("nbDefaites") || 0;
+  // le score correspond au nombre de victoires
+  // document.querySelector("#score").children[1].innerHTML =
+  //   "Victoires = " + sessionStorage.getItem("nbVictoires") || 0;
+
+  var tabMot = motCache.toUpperCase();
+  tabMot = tabMot.split("");
+  // ici, on crée autant de td en inner html à l'intérieur de #mot,
+  //qu'il y a d'éléments dans le tableau tabMot
+  for (let i = 0; i < tabMot.length; i++) {
+    document.querySelector("#mot").innerHTML += "<td>" + tabMot[i] + "</td>";
+  }
+
   // lorsqu'on clique sur une touche du clavier…
   for (let j of clavier) {
     j.addEventListener("click", function () {
@@ -95,7 +100,9 @@ function play() {
         // si la touche du clavier correspond à une lettre du tableau…
         if (j.innerHTML === tabMot[i]) {
           // on active la fonction bonne pioche
-          bonnePioche(i);
+          pointsVictoire++;
+          console.log(tabMot);
+          bonnePioche(i, tabMot, pointsVictoire);
           trouve = true;
         }
       }
@@ -108,23 +115,40 @@ function play() {
   }
 }
 
-document
-  .querySelector("#slct")
-  .lastElementChild.addEventListener("click", function () {
-    hard = true;
-  });
+document.querySelector("#formulaire").addEventListener("submit", function (e) {
+  e.preventDefault();
+  document.querySelector("#formulaire").classList.add("hidden");
+  document.querySelector("#fondForm").classList.add("hidden");
+  document.querySelector("#fondForm").classList.remove("obscur");
+  difficulty = document.querySelector("#difficulty").value;
+  difficultyMot = document.querySelector("#difficultyMot").value;
+  theme = document.querySelector("#theme").value;
+  // Ici, faire l'appel Ajax au serveur
+  fetch("http://localhost/pendu/mot.php", {
+    method: "POST",
+    mode: "cors",
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    },
+    body: JSON.stringify({
+      difficultyMot,
+      theme,
+    }),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      motCache = data;
 
-document
-  .querySelector("#slct")
-  .children[1].addEventListener("click", function () {
-    hard = false;
-  });
+      play();
+    });
+});
 
 // lorsqu'on clique sur recommencer…
 document
   .querySelector("#fin")
   .lastElementChild.addEventListener("click", function () {
     window.location.reload();
+
     // // on révèle à nouveau le clavier
     // document.querySelector("#clavier").classList.remove("hidden");
     // // pour chaque touche du clavier, on la révèle à nouveau
@@ -159,14 +183,6 @@ document
     // // on redéfinit les points de victoire et défaite sur zéro
     // pointsDefaite = 0;
     // pointsVictoire = 0;
-    // // on révèle le score
-    // document.querySelector("#score").classList.remove("hidden");
-    // // le score correspond au nombre de défaites
-    // document.querySelector("#score").children[0].innerHTML =
-    //   "Defaites = " + nbDefaites;
-    // // le score correspond au nombre de victoires
-    // document.querySelector("#score").children[1].innerHTML =
-    //   "Victoires = " + nbVictoires;
     // // on relance la fonction "play"
     // play();
   });

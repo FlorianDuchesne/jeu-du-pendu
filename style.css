@@ -9,6 +9,9 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position-y: 50%;
+  margin: 0;
+  height: 100%;
+  width: 100%;
 }
 
 .flex {
@@ -24,10 +27,11 @@ body {
 
 .hidden {
   opacity: 0;
+  z-index: -10;
 }
 
 header h1 {
-  font-family: "shadows_into_lightregular";
+  font-family: "Shadows Into Light", cursive;
   font-size: xxx-large;
   margin: 5px;
   color: white;
@@ -49,7 +53,7 @@ main #mot {
 }
 
 td {
-  font-family: "permanent_markerregular";
+  font-family: "Permanent Marker", cursive;
   font-size: xxx-large;
   text-align: center;
   width: 50px;
@@ -92,7 +96,7 @@ footer #clavier {
 }
 
 footer #clavier div {
-  font-family: "shadows_into_lightregular";
+  font-family: "Shadows Into Light", cursive;
   text-decoration: none;
   font-size: x-large;
   margin: 0.2em;
@@ -114,7 +118,7 @@ footer #clavier div {
 }
 
 #fin h2 {
-  font-family: "shadows_into_lightregular";
+  font-family: "Shadows Into Light", cursive;
   font-size: xxx-large;
   margin: 5px;
   color: white;
@@ -122,7 +126,7 @@ footer #clavier div {
 }
 
 #fin button {
-  font-family: "shadows_into_lightregular";
+  font-family: "Shadows Into Light", cursive;
   font-size: xxx-large;
   margin: 5px;
   color: crimson;
@@ -140,10 +144,10 @@ footer #clavier div {
   margin: 1em;
 }
 
-#slct {
-  position: fixed;
-  right: 0;
-  left: 0;
+.slct {
+  /* position: fixed; */
+  /* right: 0;
+  left: 0; */
   font-family: "Courier New", Courier, monospace;
   color: white;
   border: none;
@@ -151,5 +155,53 @@ footer #clavier div {
   padding: 0.25em 0.5em;
   font-size: 1.25rem;
   cursor: pointer;
+  background-color: crimson;
+  border-radius: 10px;
+}
+
+form {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  height: 50vh;
+  z-index: 10;
   background-color: darkred;
+  padding: 1em;
+  border-radius: 10px;
+  right: 25%;
+  top: 25%;
+  transition: ease-in-out 0.5s;
+}
+
+label {
+  font-family: "Courier New", Courier, monospace;
+  color: white;
+}
+
+input {
+  height: 40px;
+  width: 100px;
+  margin: auto;
+  border: none;
+  text-decoration: none;
+  background-color: crimson;
+  border-radius: 10px;
+  font-family: "Courier New", Courier, monospace;
+  text-transform: capitalize;
+  color: white;
+  font-size: larger;
+}
+
+#fondForm {
+  transition: ease-in-out 0.5s;
+  position: absolute;
+  width: 100%;
+  height: 110%;
+  background-color: rgba(0, 0, 0, 0.87);
+  margin: 0;
+}
+
+.obscur {
+  z-index: 1;
 }

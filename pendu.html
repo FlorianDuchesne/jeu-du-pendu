@@ -5,22 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="./webfontkit-20210226-133244/stylesheet.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Shadows+Into+Light&display=swap" rel="stylesheet"> 
     <title>Document</title>
   </head>
   <body>
-    <form action="">
-      <select name="difficulte" id="slct">
-        <option value="difficulte" selected>difficulté</option>
+    <div id="fondForm" class="obscur">
+    <form action="" id="formulaire">
+      <label for "difficulty">Difficulé du pendu</label>
+      <select name="difficulte" class="slct" id="difficulty">
         <option value="facile">facile</option>
         <option value="difficile">difficile</option>
       </select>
+      <label for "difficultyMot">Difficulté du mot</label>
+      <select name="difficultyMot" class="slct" id="difficultyMot">
+      <option value="facile">facile</option>
+      <option value="moyen">moyen</option>
+      <option value="difficile">difficile</option>
+      </select>
+      <label for "theme">Thème</label>
+      <select name="theme" class="slct" id="theme">
+        <option value="mignon">Mignon</option>
+        <option value="depressif">Dépressif</option>
+        <option value="capitaine haddock">Capitaine Haddock</option>
+        <option value="animaux">animaux</option>
+        </select>  
+    <input type="submit" value="jouer">
     </form>
-    <!-- <select name="slct" id="slct">
-      <option selected disabled>difficulté</option>
-      <option value="1">facile</option>
-      <option value="2">difficile</option>
-    </select> -->
+  </div>
     <div id="score" class="hidden">
       <p> Defaites = 0 </p>
       <p> Victoires = 0 </p>
